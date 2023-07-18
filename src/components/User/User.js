@@ -1,31 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux"
+import { getUsers } from "../../redux/actions/userAction"
 
 const User = () => {
-  const [data, setData] = useState(null);
+  const dispatch = useDispatch()
+
+  const usersGet = useSelector((state) => state.usersGet);
+  const { users } = usersGet;
 
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:2000/api/users/user');
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    dispatch(getUsers())
+  }, [dispatch])
 
-    fetchData();
-  }, []);
-
-  console.log("data", data)
+  console.log("users21", users)
 
   return (
     <div>
       <h1>data</h1>
-      {data && data?.data?.map((item) => {
+      {users && users?.map((item) => {
         return (
-          <div>
+          <div key={item?.id}>
             <div> Product Name :  {item?.name} </div>
             <div> Brand Name :  {item?.brand} </div>
             <div> Price : {item?.price}/- </div>
@@ -33,10 +28,10 @@ const User = () => {
           </div>
         )
       })
-
       }
     </div>
   );
 };
 
 export default User;
+
