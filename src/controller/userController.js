@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getUserController = async (req, res) => {
+const getUserController = async (req, res) => { 
     const baseUrl = process.env.BASE_API_URL
 
     if (req.method === 'GET') {
@@ -13,7 +13,6 @@ const getUserController = async (req, res) => {
                     // Authorization: `Bearer ${accessToken}`
                 }
             }
-
             const { data } = await axios.get(
                 getUserUrl,
                 config
@@ -25,12 +24,12 @@ const getUserController = async (req, res) => {
             res.status(200).json({
                 success: true,
                 message: 'success!',
-                // data: data
+                data: data
             })
         } catch (error) {
             res.status(201).json({
                 success: false,
-                // message: error.response
+                message: error.response
             })
             console.log('err in getAdminsController controller:', error.response)
         }

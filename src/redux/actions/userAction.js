@@ -1,5 +1,4 @@
 import axios from 'axios'
-// import controller from "../../controller/userController"
 
 import {
     GET_USER_REQUEST,
@@ -7,7 +6,6 @@ import {
     GET_USER_FAIL,
     // CLEAR_GET_USER_ERROR,
     // USER_RESET
-    
     } from "../constants/userConstant"
 
 

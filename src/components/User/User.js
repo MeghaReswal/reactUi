@@ -8,7 +8,6 @@ const User = () => {
   const usersGet = useSelector((state) => state.usersGet);
   const { users } = usersGet;
 
-
   useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
@@ -20,10 +19,10 @@ const User = () => {
       <h1>data</h1>
       {users && users?.map((item) => {
         return (
-          <div key={item?.id}>
+          <div key={item?._id}>
             <div> Product Name :  {item?.name} </div>
-            <div> Brand Name :  {item?.brand} </div>
-            <div> Price : {item?.price}/- </div>
+            <div> email Name :  {item?.email} </div>
+            <div> password : {item?.password} </div>
             <br />
           </div>
         )
