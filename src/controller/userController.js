@@ -4,7 +4,7 @@ const getUserController = async (req, res) => {
     const baseUrl = process.env.BASE_API_URL
 
     if (req.method === 'GET') {
-        const getUserUrl = `${baseUrl}/api/users/user`
+        const getUserUrl = `http://localhost:2000/api/users/user`
 
         try {
             const config = {

@@ -6,11 +6,12 @@ import {
     GET_USER_FAIL,
     // CLEAR_GET_USER_ERROR,
     // USER_RESET
-    } from "../constants/userConstant"
+} from "../constants/userConstant"
 
 
 export const getUsers = () => async (dispatch) => {
-    console.log("get user action 1")
+    const baseUrl = process.env.BASE_API_URL
+    console.log("get user action 1", baseUrl)
     dispatch({
         type: GET_USER_REQUEST
     })
@@ -18,11 +19,24 @@ export const getUsers = () => async (dispatch) => {
 
     try {
         console.log("get user action 3")
-        const { data } = await axios.get(`http://localhost:2000/api/users/user`)
+        const getUserUrl = `http://localhost:2000/api/users/user`
+
+        // const config = {
+        //     // method: "post",
+        //     headers: {
+        //         'content-type': 'application/json',
+        //         // Authorization: `Bearer ${accessToken}`
+        //     },
+        // }
+        const { data } = await axios.get(
+            getUserUrl,
+            // config
+        )
+
         console.log('response in getuser action redux:', data)
 
         if (data?.data) {
-            console.log('subID',data?.data)
+            console.log('subID', data?.data)
             dispatch({
                 type: GET_USER_SUCCESS,
                 payload: data?.data

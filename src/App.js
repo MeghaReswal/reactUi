@@ -4,9 +4,13 @@ function App() {
 
     return (
         <div>
-            <NavRoute />
+        <NavRoute />
+       
         </div>
-    );
-}
-
-export default App;
+        );
+    }
+    
+    export default App;
+    //  <Login />
+    // <SignUP />
+    // <AuthDetails />
