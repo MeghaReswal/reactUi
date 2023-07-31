@@ -19,7 +19,7 @@ export const getUsers = () => async (dispatch) => {
 
     try {
         console.log("get user action 3")
-        const getUserUrl = `http://localhost:2000/api/users/user`
+        const getUserUrl = `https://node-mongodb-api-bkin.onrender.com/api/users/user`
 
         // const config = {
         //     // method: "post",
